@@ -216,7 +216,7 @@ public class GameSystem : DungeonSystem
                 case "4": // 던전입장
                     Console.Clear();
                     duty = true;
-                    
+                    Day += 1;
                     bool dungeonEnd = false;
                     bool questError = false;
 
@@ -225,7 +225,6 @@ public class GameSystem : DungeonSystem
                         quest(ref questError, ref dungeonEnd);
                     }
                     Console.Clear();
-                    Day += 1;
                     break;
 
                 case "5": // 휴식하기
