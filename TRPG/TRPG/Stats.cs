@@ -153,4 +153,14 @@ public class Stats : Character
         UpdateAtk();
         UpdateDef();
     }
+    //====================던전 시스템====================
+    public int dungeonDay = 3;
+    public int dungeonHour = 0;
+    //====================던전 맵====================
+    public int playerX = -1; //포탈좌표x
+    public int playerY = -1; //포탈좌표x
+    public int portalX = -1; //포탈좌표x
+    public int portalY = -1; //포탈좌표y
+    public int floor = 1; //층수
+    public char[,] map; //
 }
