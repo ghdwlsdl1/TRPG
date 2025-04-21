@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
@@ -210,7 +210,6 @@ public class GameSystem : DungeonSystem
                     {
                         StoreRepeat = Store(ref StoreError, ref MoneyLack);
                     }
-                    Console.Clear();
                     break;
 
                 case "4": // 던전입장
