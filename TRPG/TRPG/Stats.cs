@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -153,6 +153,7 @@ public class Stats : Character
         UpdateAtk();
         UpdateDef();
     }
+<<<<<<< HEAD
     //====================던전 시스템====================
     public int dungeonDay = 3;
     public int dungeonHour = 0;
@@ -174,4 +175,16 @@ public class Stats : Character
     {
         return random.Next(1, 7);
     }
+=======
+    
+    public bool isInDungeon = false;
+    public int dungeonDay = 7;
+    public int dungeonHour = 0;
+    public int playerX = -1;
+    public int playerY = -1;
+    public int portalX = -1;
+    public int portalY = -1;
+    public int floor = 1;
+
+>>>>>>> parent of 816b4e7 (데이터값완전히분할)
 }

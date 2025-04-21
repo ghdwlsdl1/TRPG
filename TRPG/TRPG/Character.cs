@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,9 +35,22 @@ public class Character
 
     public int Money = 2000;
 
+<<<<<<< HEAD
     //====================마을 시스템====================
     public bool duty = false;
     public int Day = 1;
+=======
+    //====================주사위====================
+    public Random random = new Random(); //랜덤
+    public int dice20() //20면 주사위
+    {
+        return random.Next(1, 21) + Luk;
+    }
+    public int dice6() //6면 주사위
+    {
+        return random.Next(1, 7);
+    }
+>>>>>>> parent of 816b4e7 (데이터값완전히분할)
     //====================아이탬====================
     public string[] weapon = { "없음", "무딘 검", "강철 검", "전투용 망치", "단검", "지팡이" };// 아이탬 이름
     public bool[] weaponTf = { false, false, false, false, false, false }; // 소지 여부
@@ -59,6 +72,7 @@ public class Character
     public int[] armorDef = { 0, 1, 3, 5, 7, 10 }; // 추가 방어력
     public int[] armorDeal = { 0, 1000, 2000, 3000, 4000, 5000 }; // 금액
 
+<<<<<<< HEAD
     public static class SaveSystem
     {
         public static void SaveGame(Character data, string path = "save.json")
@@ -79,3 +93,6 @@ public class Character
         }
     }
 }
+=======
+}
+>>>>>>> parent of 816b4e7 (데이터값완전히분할)

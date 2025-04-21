@@ -115,8 +115,8 @@ public class GameSystem : DungeonSystem
 
         //==================== 게임화면 ====================
         bool playError = false;
-        // bool duty = false;
-        // int Day = 1;
+        bool duty = false;
+        int Day = 1;
         while (play)
         {
             Console.WriteLine($"{Day}일");
@@ -255,4 +255,5 @@ public class GameSystem : DungeonSystem
         }
     }
 }
+
 

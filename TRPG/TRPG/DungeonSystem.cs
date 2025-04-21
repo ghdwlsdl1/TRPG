@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 public class DungeonSystem : Choice
 {
-    //public int dungeonDay = 3; 일수
-    //public int dungeonHour = 0; 시간
+    public int dungeonDay = 3;
+    public int dungeonHour = 0;
     public void dungeonTime()
     {
         if (dungeonHour >= 24)
