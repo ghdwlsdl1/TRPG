@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
@@ -26,7 +26,7 @@ public class GameSystem : DungeonSystem
 
         while (!start)
         {
-            Console.WriteLine("Dungeon and Stone \n\n1. 시작하기\n2. 불러오기\n3. 설명듣기"); // 시작화면
+            Console.WriteLine("Dungeon and Stone \n\n1. 시작하기\n2. 설명듣기"); // 시작화면
             if (startError)
             {
                 Console.WriteLine("잘못된 입력입니다.\n");
@@ -37,7 +37,6 @@ public class GameSystem : DungeonSystem
             switch (text)
             {
                 case "1": // 게임 시작
-                    SaveSystem.ResetSave();
                     Console.Clear();
                     bool nameError = false;
                     bool jobError = false;
@@ -67,23 +66,7 @@ public class GameSystem : DungeonSystem
                     play = true;
                     break;
 
-                case "2": // 불러오기
-                    Character loaded = SaveSystem.LoadGame();
-                    if (loaded != null)
-                    {
-                        CopyCharacterData(loaded, this); // 현재 캐릭터에 데이터 복사
-                        Console.WriteLine("세이브 데이터를 불러왔습니다.\n");
-                        UpdateStats(); // 불러온 스탯 적용
-                        play = true;   // 게임 루프 진입
-                        Console.Clear();
-                    }
-                    else
-                    {
-                        Console.WriteLine("저장된 데이터가 없습니다.\n");
-                    }
-                    break;
-
-                case "3":
+                case "2":
                     Console.Clear();
                     Console.WriteLine("당신은 미궁 도시에 도달했습니다. 살아남기를 기도합니다.");
                     Console.WriteLine("\n주사위");
@@ -115,8 +98,8 @@ public class GameSystem : DungeonSystem
 
         //==================== 게임화면 ====================
         bool playError = false;
-        bool duty = false;
-        int Day = 1;
+        // bool duty = false;
+        // int Day = 1;
         while (play)
         {
             Console.WriteLine($"{Day}일");
@@ -132,7 +115,6 @@ public class GameSystem : DungeonSystem
                 {
                     Console.WriteLine("\n세금이 부족하여 처형됩니다..");
                     Console.WriteLine($"{Day}일 동안 생존하였습니다.");
-                    SaveSystem.ResetSave();
                     play = false;
                 }
                 else
@@ -141,7 +123,7 @@ public class GameSystem : DungeonSystem
                     duty = false;
                 }
             }
-            SaveSystem.SaveGame(this);
+
             Console.WriteLine("\n도시입니다.");
             Console.WriteLine("이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.");
             Console.WriteLine("1. 상태 보기");
@@ -210,12 +192,13 @@ public class GameSystem : DungeonSystem
                     {
                         StoreRepeat = Store(ref StoreError, ref MoneyLack);
                     }
+                    Console.Clear();
                     break;
 
                 case "4": // 던전입장
                     Console.Clear();
                     duty = true;
-                    Day += 1;
+                    
                     bool dungeonEnd = false;
                     bool questError = false;
 
@@ -224,6 +207,7 @@ public class GameSystem : DungeonSystem
                         quest(ref questError, ref dungeonEnd);
                     }
                     Console.Clear();
+                    Day += 1;
                     break;
 
                 case "5": // 휴식하기
@@ -247,11 +231,9 @@ public class GameSystem : DungeonSystem
             {
                 Console.WriteLine("\n사망하였습니다.");
                 Console.WriteLine($"{Day}일 동안 생존하였습니다.");
-                SaveSystem.ResetSave();
                 play = false;
             }
         }
     }
 }
-
 
