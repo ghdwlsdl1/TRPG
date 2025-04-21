@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 public class Character
 {
@@ -37,17 +38,6 @@ public class Character
     //====================마을 시스템====================
     public bool duty = false;
     public int Day = 1;
-
-    //====================던전 시스템====================
-    public int dungeonDay = 3;
-    public int dungeonHour = 0;
-    //====================던전 맵====================
-    public int playerX = -1; //포탈좌표x
-    public int playerY = -1; //포탈좌표x
-    public int portalX = -1; //포탈좌표x
-    public int portalY = -1; //포탈좌표y
-    public int floor = 1; //층수
-    public char[,] map; //
     //====================아이탬====================
     public string[] weapon = { "없음", "무딘 검", "강철 검", "전투용 망치", "단검", "지팡이" };// 아이탬 이름
     public bool[] weaponTf = { false, false, false, false, false, false }; // 소지 여부
@@ -69,4 +59,23 @@ public class Character
     public int[] armorDef = { 0, 1, 3, 5, 7, 10 }; // 추가 방어력
     public int[] armorDeal = { 0, 1000, 2000, 3000, 4000, 5000 }; // 금액
 
+    public static class SaveSystem
+    {
+        public static void SaveGame(Character data, string path = "save.json")
+        {
+            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(path, json);
+        }
+        public static Character LoadGame(string path = "save.json")
+        {
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("저장 파일이 없습니다.");
+                return null;
+            }
+
+            string json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<Character>(json);
+        }
+    }
 }
