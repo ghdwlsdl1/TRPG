@@ -34,17 +34,6 @@ public class Character
 
     public int Money = 2000;
 
-    //====================주사위====================
-    public Random random = new Random(); //랜덤
-    public int dice20() //20면 주사위
-    {
-        return random.Next(1, 21) + Luk;
-    }
-    public int dice6() //6면 주사위
-    {
-        return random.Next(1, 7);
-    }
-
     //====================마을 시스템====================
     public bool duty = false;
     public int Day = 1;

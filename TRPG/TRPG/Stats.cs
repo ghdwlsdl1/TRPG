@@ -163,4 +163,14 @@ public class Stats : Character
     public int portalY = -1; //포탈좌표y
     public int floor = 1; //층수
     public char[,] map; //
+    //====================주사위====================
+    public Random random = new Random(); //랜덤
+    public int dice20() //20면 주사위
+    {
+        return random.Next(1, 21) + Luk;
+    }
+    public int dice6() //6면 주사위
+    {
+        return random.Next(1, 7);
+    }
 }
