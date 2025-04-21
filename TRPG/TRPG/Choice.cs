@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -488,10 +488,10 @@ public class Choice : Stats
     }
     //던전
     //캐릭터 좌표
-    public char[,] map;
-    public int playerX = -1, playerY = -1;
-    public int portalX = -2, portalY = -2;
-    public int floor = 1; // 현재 층
+    // public char[,] map;
+    // public int playerX = -1, playerY = -1;
+    // public int portalX = -2, portalY = -2;
+    // public int floor = 1; // 현재 층
 
     // 층에 따라 맵 크기를 계산하는 메서드
     int GetMapSize(int floor)

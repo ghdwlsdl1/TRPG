@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -153,14 +153,16 @@ public class Stats : Character
         UpdateAtk();
         UpdateDef();
     }
-    
-    public bool isInDungeon = false;
-    public int dungeonDay = 7;
-    public int dungeonHour = 0;
-    public int playerX = -1;
-    public int playerY = -1;
-    public int portalX = -1;
-    public int portalY = -1;
-    public int floor = 1;
 
+
+    //====================주사위====================
+    public Random random = new Random(); //랜덤
+    public int dice20() //20면 주사위
+    {
+        return random.Next(1, 21) + Luk;
+    }
+    public int dice6() //6면 주사위
+    {
+        return random.Next(1, 7);
+    }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,16 +34,20 @@ public class Character
 
     public int Money = 2000;
 
-    //====================주사위====================
-    public Random random = new Random(); //랜덤
-    public int dice20() //20면 주사위
-    {
-        return random.Next(1, 21) + Luk;
-    }
-    public int dice6() //6면 주사위
-    {
-        return random.Next(1, 7);
-    }
+    //====================마을 시스템====================
+    public bool duty = false;
+    public int Day = 1;
+
+    //====================던전 시스템====================
+    public int dungeonDay = 3;
+    public int dungeonHour = 0;
+    //====================던전 맵====================
+    public int playerX = -1; //포탈좌표x
+    public int playerY = -1; //포탈좌표x
+    public int portalX = -1; //포탈좌표x
+    public int portalY = -1; //포탈좌표y
+    public int floor = 1; //층수
+    public char[,] map; //
     //====================아이탬====================
     public string[] weapon = { "없음", "무딘 검", "강철 검", "전투용 망치", "단검", "지팡이" };// 아이탬 이름
     public bool[] weaponTf = { false, false, false, false, false, false }; // 소지 여부
